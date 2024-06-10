@@ -1,0 +1,11 @@
+{{- include "adp-helm-library.deployment" (list . "fcp-jkr-demo-backend-1.deployment") -}}
+{{- define "fcp-jkr-demo-backend-1.deployment" -}}
+spec:
+  template:
+    spec:
+      containers:
+      - {{ include "adp-helm-library.container" (list . "fcp-jkr-demo-backend-1.container") }}
+      volumes:
+      - name: {{ .Values.volumeMounts.name }}
+        emptyDir: {}
+{{- end -}}

@@ -1,0 +1,32 @@
+@Fcp.Jkr.Demo.Backend.1.Api_HostAddress = https://localhost:7118
+
+GET {{Fcp.Jkr.Demo.Backend.1.Api_HostAddress}}/api/demo
+
+###
+
+POST {{Fcp.Jkr.Demo.Backend.1.Api_HostAddress}}/api/demo
+Content-Type: application/json
+
+{
+    "name":"item3"
+}
+
+###
+
+PATCH {{Fcp.Jkr.Demo.Backend.1.Api_HostAddress}}/api/demo
+Content-Type: application/json
+
+{
+    "id":"1",
+    "name":"item3"
+}
+
+###
+
+GET {{Fcp.Jkr.Demo.Backend.1.Api_HostAddress}}/api/demo/1
+
+###
+
+DELETE {{Fcp.Jkr.Demo.Backend.1.Api_HostAddress}}/api/demo/3
+
+###

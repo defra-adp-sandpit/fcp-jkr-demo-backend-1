@@ -1,0 +1,16 @@
+services:
+  fcp-jkr-demo-backend-1:
+    build:
+      target: development
+    image: fcp-jkr-demo-backend-1-development
+    container_name: fcp-jkr-demo-backend-1-test
+    user: root
+    entrypoint: sh -c "cd /home/dotnet && chown -R dotnet:dotnet . && su dotnet -c 'dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./test-output/'"
+    volumes:
+      - ./Fcp.Jkr.Demo.Backend.1.sln:/home/dotnet/Fcp.Jkr.Demo.Backend.1.sln
+      - ./src/Fcp.Jkr.Demo.Backend.1.Core:/home/dotnet/src/Fcp.Jkr.Demo.Backend.1.Core
+      - ./test/Fcp.Jkr.Demo.Backend.1.Core.Tests:/home/dotnet/test/Fcp.Jkr.Demo.Backend.1.Core.Tests
+      - ./src/Fcp.Jkr.Demo.Backend.1.Api:/home/dotnet/src/Fcp.Jkr.Demo.Backend.1.Api
+      - ./test/Fcp.Jkr.Demo.Backend.1.Api.Tests:/home/dotnet/test/Fcp.Jkr.Demo.Backend.1.Api.Tests
+      - ./test/Fcp.Jkr.Demo.Backend.1.Api.Tests/test-output:/home/dotnet/test/Fcp.Jkr.Demo.Backend.1.Api.Tests/test-output
+      - ./test/Fcp.Jkr.Demo.Backend.1.Core.Tests/test-output:/home/dotnet/test/Fcp.Jkr.Demo.Backend.1.Core.Tests/test-output

@@ -1,0 +1,12 @@
+# This override file should be used when running this service in isolation
+# to provide required sibling services for local testing
+
+services:
+  fcp-jkr-demo-backend-1:
+    build:
+      target: development
+    ports:
+      - "3007:3007"
+    volumes:
+      - ./src/Fcp.Jkr.Demo.Backend.1.Api:/home/dotnet/src/Fcp.Jkr.Demo.Backend.1.Api
+      - ./src/Fcp.Jkr.Demo.Backend.1.Core:/home/dotnet/src/Fcp.Jkr.Demo.Backend.1.Core

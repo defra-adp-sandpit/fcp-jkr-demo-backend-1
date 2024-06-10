@@ -1,0 +1,10 @@
+services:
+  fcp-jkr-demo-backend-1:
+    build:
+      context: .
+      target: production
+    image: fcp-jkr-demo-backend-1
+    container_name: fcp-jkr-demo-backend-1
+    environment:
+      APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
+      APPINSIGHTS_CLOUDROLE: fcp-jkr-demo-backend-1-local
